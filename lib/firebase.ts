@@ -20,6 +20,7 @@ export const auth = firebase.auth();
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 export const storage = firebase.storage();
 export const STATE_CHANGED = firebase.storage.TaskEvent.STATE_CHANGED;
+export const increment = firebase.firestore.FieldValue.increment;
 
 export const firestore = firebase.firestore();
 
@@ -37,6 +38,8 @@ export async function getUserWithUsername(username: string) {
 
 export function postToJSON(doc) {
   const data = doc.data();
+  console.log(data);
+
   return {
     ...data,
     // firestore timestamp NOT serializable to JSON
